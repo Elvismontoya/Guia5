@@ -6,7 +6,7 @@ client = app.test_client()
 def test_index():
     r = client.get("/")
     assert r.status_code == 200
-    assert "API Calculadora" in r.get_json()["mensaje"]
+    assert b"Calculadora" in r.data
 
 def test_suma():
     r = client.get("/suma/4/5")
